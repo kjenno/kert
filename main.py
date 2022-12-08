@@ -1,0 +1,25 @@
+import time
+print("It’s a late Christmas night, you’re downstairs in front of the television, you think it’s time to go to bed so you head upstairs and go to sleep.")
+time.sleep(10)
+print("Suddenly you hear a loud knock on the door, you look through the window but you can’t recognize the person in front of the door.")
+time.sleep(3)
+print("[ Do you open the door ] [open] or  [ Do you go to sleep? ] [sleep]")
+option1 = input()
+if option1 == ("sleep"):
+    print("It didn’t even feel like you went to sleep, but you’re definitely not in your bed anymore you’re in a playground and it’s snowy. ")
+    time.sleep(6)
+    print("You see a reindeer who asks for your help, the big Christmas tree has been stolen by the elves, you have to find someone who knows about where the Christmas tree went")
+    time.sleep(6)
+    print("After searching you find a snowman he tells you that the Christmas tree has been taken to the factory to burn it.")
+    time.sleep(6)
+    print("There are two elf guards waiting for you at the gate of the factory.")
+    time.sleep(3)
+    print("[Try to talk it out] [talk] or [Fight your way in] [fight]")
+    option2 = input()
+    if option2 == ("talk"):
+        print("You talk it out and due to your charisma you managed to get in without harming anyone")
+        time.sleep(3)
+        print("You see the big glowing Christmas tree and think it’s time to take it home ")
+        time.sleep(3)
+        print("“Ho ho ho looks like someone is trying to take our Christmas tree home.”")
+
