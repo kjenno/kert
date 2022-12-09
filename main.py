@@ -4,7 +4,8 @@ import random
 elf_hp = 25
 kerst_hp = 50
 hero_hp =30
-
+current_hp1 = elf_hp
+current_hp2 = kerst_hp
 strength = 5
 ac = 15
 hp = 25
@@ -55,12 +56,13 @@ if option1 == ("sleep"):
     if option2 == ("talk"):
         print("You talk it out and due to your charisma you managed to get in without harming anyone")
     if option2 == ("fight"):
-        while elf_hp > 0:
+        while current_hp1 > 0:
             inp = input(r"you decide to fight what will you do?:  ")
             if(inp == "attack"):
                 if(roll_to_hit(ac)):
                     damage_done = roll_4_dmg(strength)
                     elf_hp = damage_elf(elf_hp, damage_done)
+                    current_hp1 = damage_elf(current_hp1, damage_done)
                 else:
                     print("You missed!")
             if(inp == "dodge"):
