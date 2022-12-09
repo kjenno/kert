@@ -1,6 +1,33 @@
 import time
+import random
+
+monster_hp = 25
+strength = 5
+ac = 15
+hp = 25
+combat = True
+current_hp = monster_hp
+dmg = 0
+hit = False
+
+def roll_to_hit(ac):
+    hit = random.randint(1, 20)
+    if hit >= ac:
+        return True
+    return False
+
+
+def roll_4_dmg(strength):
+    dmg = random.randint(1, 10) + strength
+    print(f"You hit and did {dmg} damage.")
+    return dmg
+
+def damage(monster_hp, dmg):
+    current_hp = monster_hp - dmg
+    return current_hp
+
 print("It’s a late Christmas night, you’re downstairs in front of the television, you think it’s time to go to bed so you head upstairs and go to sleep.")
-time.sleep(10)
+time.sleep(6)
 print("Suddenly you hear a loud knock on the door, you look through the window but you can’t recognize the person in front of the door.")
 time.sleep(3)
 print("[ Do you open the door ] [open] or  [ Do you go to sleep? ] [sleep]")
@@ -18,8 +45,37 @@ if option1 == ("sleep"):
     option2 = input()
     if option2 == ("talk"):
         print("You talk it out and due to your charisma you managed to get in without harming anyone")
-        time.sleep(3)
-        print("You see the big glowing Christmas tree and think it’s time to take it home ")
-        time.sleep(3)
-        print("“Ho ho ho looks like someone is trying to take our Christmas tree home.”")
+    if option2 == ("fight"):
+        while current_hp > 0:
+            inp = input(r"you decide to fight what will you do?:  ")
+            if(inp == "attack"):
+                if(roll_to_hit(ac)):
+                    damage_done = roll_4_dmg(strength)
+                    current_hp = damage(current_hp, damage_done)
+                else:
+                    print("You missed!")
+            if(inp == "dodge"):
+                print("you dodged the elf's attack")
+            if(inp == "run"):
+                print("you ran away")
+        print("You have beaten the elves!")
+    time.sleep(3)
+    print("You see the big glowing Christmas tree and think it’s time to take it home")
+    time.sleep(3)
+    print("Ho ho ho looks like someone is trying to take our Christmas tree home.")
+    time.sleep(3)
+    print("Santa comes down to attack you and you start to fight")
+    while current_hp > 0:
+            inp = input(r" santa has appeared what will you do?:  ")
+            if(inp == "attack"):
+                if(roll_to_hit(ac)):
+                    damage_done = roll_4_dmg(strength)
+                    current_hp = damage(current_hp, damage_done)
+                else:
+                    print("You missed!")
+            if(inp == "dodge"):
+                print("you dodged santa's attack")
+            if(inp == "run"):
+                print("you ran away")
+    print("You beat santa!")
 
