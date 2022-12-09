@@ -61,7 +61,6 @@ if option1 == ("sleep"):
             if(inp == "attack"):
                 if(roll_to_hit(ac)):
                     damage_done = roll_4_dmg(strength)
-                    elf_hp = damage_elf(elf_hp, damage_done)
                     current_hp1 = damage_elf(current_hp1, damage_done)
                 else:
                     print("You missed!")
