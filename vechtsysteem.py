@@ -4,14 +4,16 @@ monster_hp = 25
 strength = 5
 ac = 15
 hp = 25
+player_hp = 25
 combat = True
 current_hp = monster_hp
+
 dmg = 0
 hit = False
 
 def roll_to_hit(ac):
     hit = random.randint(1, 20)
-    if hit >= ac:
+    if hit <= ac:
         return True
     return False
 
@@ -24,6 +26,8 @@ def roll_4_dmg(strength):
 def damage(monster_hp, dmg):
     current_hp = monster_hp - dmg
     return current_hp
+
+
 
 while current_hp > 0:
     inp = input(r" santa has appeared what will you do? ")

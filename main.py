@@ -1,18 +1,21 @@
 import time
 import random
 
-monster_hp = 25
+elf_hp = 25
+kerst_hp = 50
+hero_hp =30
+
 strength = 5
 ac = 15
 hp = 25
 combat = True
-current_hp = monster_hp
+
 dmg = 0
 hit = False
 
 def roll_to_hit(ac):
     hit = random.randint(1, 20)
-    if hit >= ac:
+    if hit <= ac:
         return True
     return False
 
@@ -22,9 +25,15 @@ def roll_4_dmg(strength):
     print(f"You hit and did {dmg} damage.")
     return dmg
 
-def damage(monster_hp, dmg):
-    current_hp = monster_hp - dmg
-    return current_hp
+def damage_elf(elf_hp, dmg):
+    current_hp1 = elf_hp - dmg
+    return current_hp1
+
+def damage_kerst(kerst_hp, dmg):
+    current_hp2 = kerst_hp - dmg
+    return current_hp2
+
+
 
 print("It’s a late Christmas night, you’re downstairs in front of the television, you think it’s time to go to bed so you head upstairs and go to sleep.")
 time.sleep(6)
@@ -46,12 +55,12 @@ if option1 == ("sleep"):
     if option2 == ("talk"):
         print("You talk it out and due to your charisma you managed to get in without harming anyone")
     if option2 == ("fight"):
-        while current_hp > 0:
+        while elf_hp > 0:
             inp = input(r"you decide to fight what will you do?:  ")
             if(inp == "attack"):
                 if(roll_to_hit(ac)):
                     damage_done = roll_4_dmg(strength)
-                    current_hp = damage(current_hp, damage_done)
+                    elf_hp = damage_elf(elf_hp, damage_done)
                 else:
                     print("You missed!")
             if(inp == "dodge"):
@@ -65,12 +74,12 @@ if option1 == ("sleep"):
     print("Ho ho ho looks like someone is trying to take our Christmas tree home.")
     time.sleep(3)
     print("Santa comes down to attack you and you start to fight")
-    while current_hp > 0:
+    while current_hp2 > 0:
             inp = input(r" santa has appeared what will you do?:  ")
             if(inp == "attack"):
                 if(roll_to_hit(ac)):
                     damage_done = roll_4_dmg(strength)
-                    current_hp = damage(current_hp, damage_done)
+                    current_hp2 = damage_kerst(current_hp2, damage_done)
                 else:
                     print("You missed!")
             if(inp == "dodge"):
