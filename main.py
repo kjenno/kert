@@ -3,12 +3,18 @@ import random
 
 elf_hp = 25
 kerst_hp = 50
-hero_hp =30
+sneeuw_hp = 50
+kerst_hp2 = 50
+sneeuwpop_hp = 15
+
 current_hp1 = elf_hp
 current_hp2 = kerst_hp
+current_hp3 = sneeuw_hp
+current_hp4 = kerst_hp2
+current_hp5 = sneeuwpop_hp
 strength = 5
 ac = 15
-hp = 25
+
 combat = True
 
 dmg = 0
@@ -19,25 +25,43 @@ def roll_to_hit(ac):
     if hit <= ac:
         return True
     return False
-
-
 def roll_4_dmg(strength):
     dmg = random.randint(1, 10) + strength
     print(f"You hit and did {dmg} damage.")
     return dmg
-
 def damage_elf(elf_hp, dmg):
     current_hp1 = elf_hp - dmg
     return current_hp1
-
 def damage_kerst(kerst_hp, dmg):
     current_hp2 = kerst_hp - dmg
     return current_hp2
-
+def damage_sneeuw(sneeuw_hp, dmg):
+    current_hp3 = sneeuw_hp - dmg
+    return current_hp3
+def damage_kerst2(kerst2_hp, dmg):
+    current_hp4 = kerst2_hp - dmg
+    return current_hp4
+def damage_sneeuwpop(sneeuw_hp, dmg):
+    current_hp5 = sneeuwpop_hp - dmg
+    return current_hp5
+def V_sneeuwpop(current_hp5, strength, ac, roll_to_hit, roll_4_dmg, damage_sneeuwpop):
+    while current_hp5 > 0:
+        inp = input(r"what do you do next?:  ")
+        if(inp == "attack"):
+            if(roll_to_hit(ac)):
+                damage_done = roll_4_dmg(strength)
+                current_hp5 = damage_sneeuwpop(current_hp5, damage_done)
+            else:
+                print("You missed!")
+        if(inp == "dodge"):
+            print("you dodged the attack")
+        if(inp == "run"):
+            print("you ran away")
+    print("You beat the guards and continue")
 
 
 print("It’s a late Christmas night, you’re downstairs in front of the television, you think it’s time to go to bed so you head upstairs and go to sleep.")
-time.sleep(6)
+time.sleep(4)
 print("Suddenly you hear a loud knock on the door, you look through the window but you can’t recognize the person in front of the door.")
 time.sleep(3)
 print("[ Do you open the door ] [open] or  [ Do you go to sleep? ] [sleep]")
@@ -88,4 +112,66 @@ if option1 == ("sleep"):
             if(inp == "run"):
                 print("you ran away")
     print("You beat santa!")
+    time.sleep(2)
+    print("you take the Christmas tree home but, you wake up, this time for real. You’re home and it doesn’t feel like a dream anymore")
+if option1 == ("open"):
+    print("you open the door")
+    time.sleep(1)
+    print("he tells you Santa’s snowmen have gone rogue against him and he needs your help!")
+    time.sleep(4)
+    print("You follow the elf to a big forest with huge trees but a huge snowstorm makes you lose the small elf")
+    time.sleep(4)
+    print("Now you’re all alone but you feel that someone is behind you, so you say : “He’s right behind me isn’t he.”")
+    time.sleep(5)
+    print("You gulp and slowly turn your head")
+    time.sleep(1)
+    print(" It’s the snowman captain.")
+    while current_hp3 > 0:
+            inp = input(r" the snowman captain has appeared what will you do?:  ")
+            if(inp == "attack"):
+                if(roll_to_hit(ac)):
+                    damage_done = roll_4_dmg(strength)
+                    current_hp3 = damage_sneeuw(current_hp3, damage_done)
+                else:
+                    print("You missed!")
+            if(inp == "dodge"):
+                print("you dodged the attack")
+            if(inp == "run"):
+                print("you ran away")
+    print("You beat the snowman captain!")
+    time.sleep(2)
+    print("the snowstorm stops")
+    time.sleep(2)
+    print("you see black smoke coming from the distance so you choose to follow it.")
+    time.sleep(3)
+    print("While on your way there you see a man with a cloak covering his whole face and a candy cane walking stick.")
+    time.sleep(4)
+    print("You ask him if he caused the smoke and he takes off his cloak, it’s the fired Santa,")
+    time.sleep(5)
+    print("he has been fired from the factory a long time ago and is looking for revenge.")
+    time.sleep(5)
+    option3 = input("what will you do[talk] [ attack]")
+    if option3 == ("talk"):
+        print("You talk it out, luckily you have worked on your charisma and he accepts your offer to let you go help Santa at the factory you continue.")
+    if option3 == ("attack"):
+        while current_hp4 > 0:
+            inp = input(r" santa got mad what will you do?:  ")
+            if(inp == "attack"):
+                if(roll_to_hit(ac)):
+                    damage_done = roll_4_dmg(strength)
+                    current_hp4 = damage_kerst2(current_hp4, damage_done)
 
+                else:
+                    print("You missed!")
+            if(inp == "dodge"):
+                print("you dodged the attack")
+            if(inp == "run"):
+                print("you ran away")
+        print("You beat santa and continue")
+        time.sleep(2)
+        print("You reach Santa’s factory there is fire everywhere, there are 10 snowman guards ready to hold you back.")
+        option4 = input("what will you do[fight]")
+        if option4 ==("fight"):
+            V_sneeuwpop(current_hp5, strength, ac, roll_to_hit, roll_4_dmg, damage_sneeuwpop)
+        if option4 == ("Go home"):
+            print("you go home and back to sleep")
