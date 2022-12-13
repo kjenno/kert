@@ -108,7 +108,7 @@ if option1 == ("sleep"):
                 else:
                     print("You missed!")
             if(inp == "dodge"):
-                print("you dodged santa's attack")
+                print("you dodged santa's attack")                                                                                                                                              
             if(inp == "run"):
                 print("you ran away")
     print("You beat santa!")

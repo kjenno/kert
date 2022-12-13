@@ -1,6 +1,6 @@
 import random
 
-monster_hp = 25
+monster_hp = 250
 strength = 5
 ac = 15
 hp = 25
@@ -30,7 +30,7 @@ def damage(monster_hp, dmg):
 
 
 while current_hp > 0:
-    print("[ Santa has appeared what will you do? ]")
+    print(r"[ Santa has appeared what will you do? ]")
     print("""⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣶⣿⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣿⣿⣿⣿⣿⣿⣿⣿⡀⠀⠀⠀⠀⠀⠀⠀
