@@ -3,6 +3,10 @@ charisma = 0
 attack = 0
 luck = 0
 
+def cotrolle(amountofpoints, points):
+   if amountofpoints >= points:
+      return False
+
 while True:
  print("To what would you like to add a skill point?")
  print("[charisma] [attack] [luck]")
@@ -43,3 +47,7 @@ while True:
    print("Attack :", attack)
    print("Luck :", luck)
    break
+
+
+
+
