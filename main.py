@@ -141,12 +141,13 @@ if option1 == ("sleep"):
                 damage_doneh = roll_4_dmgh(10)
                 current_hp8 = damage_hero(current_hp8, damage_doneh)
                 hp_check(current_hp8)
+                time.sleep(1)
                 print("you have",current_hp8, "hp left")
+                time.sleep(1)
             if(inp == "heal"):
                 current_hp8 = heal(current_hp8, healing, hero_hp)
             if(inp == "run"):
                 print("you ran away")
-                break
         print("You have beaten the elves!")
     time.sleep(3)
     print("You see the big glowing Christmas tree and think it’s time to take it home")
@@ -165,11 +166,13 @@ if option1 == ("sleep"):
                 damage_doneh = roll_4_dmgh(10)
                 current_hp8 = damage_hero(current_hp8, damage_doneh)
                 hp_check(current_hp8)
+                time.sleep(1)
+                print("you have",current_hp8, "hp left")
+                time.sleep(1)
             if(inp == "heal"):
                 current_hp8 = heal(current_hp8, healing, hero_hp)
             if(inp == "run"):
                 print("you ran away")
-                break
     print("You beat santa!")
     time.sleep(2)
     print("you take the Christmas tree home but, you wake up, this time for real. You’re home and it doesn’t feel like a dream anymore")
@@ -196,11 +199,13 @@ if option1 == ("open"):
                 damage_doneh = roll_4_dmgh(10)
                 current_hp8 = damage_hero(current_hp8, damage_doneh)
                 hp_check(current_hp8)
+                time.sleep(1)
+                print("you have",current_hp8, "hp left")
+                time.sleep(1)
             if(inp == "heal"):
                 current_hp8 = heal(current_hp8, healing, hero_hp)
             if(inp == "run"):
                 print("you ran away")
-                break
     print("You beat the snowman captain!")
     time.sleep(2)
     print("the snowstorm stops")
@@ -228,18 +233,20 @@ if option1 == ("open"):
                 damage_doneh = roll_4_dmgh(10)
                 current_hp8 = damage_hero(current_hp8, damage_doneh)
                 hp_check(current_hp8)
+                time.sleep(1)
+                print("you have",current_hp8, "hp left")
+                time.sleep(1)
             if(inp == "heal"):
                 current_hp8 = heal(current_hp8, healing, hero_hp)
             if(inp == "run"):
                 print("you ran away")
-                break
         print("You beat santa and continue")
         time.sleep(2)
         print("You reach Santa’s factory there is fire everywhere, there are 10 snowman guards ready to hold you back.")
         option4 = input("what will you do[fight][go home]")
         if option4 ==("fight"):
             while current_hp5 > 0:
-                inp = input(r" what will you do?:  ")
+                inp = input(r" the guards got mad what will you do?:  ")
                 if(inp == "attack"):
                     if(roll_to_hit(ac)):
                         damage_done = roll_4_dmg(strength)
@@ -249,11 +256,13 @@ if option1 == ("open"):
                     damage_doneh = roll_4_dmgh(10)
                     current_hp8 = damage_hero(current_hp8, damage_doneh)
                     hp_check(current_hp8)
+                    time.sleep(1)
+                    print("you have",current_hp8, "hp left")
+                    time.sleep(1)
                 if(inp == "heal"):
                     current_hp8 = heal(current_hp8, healing, hero_hp)
                 if(inp == "run"):
                     print("you ran away")
-                    break
             print("You beat the guards and continue")
             time.sleep(3)
             print("you get to Santa’s office and find out he is being held hostage by one of his reindeers")
@@ -271,11 +280,13 @@ if option1 == ("open"):
                     damage_doneh = roll_4_dmgh(10)
                     current_hp8 = damage_hero(current_hp8, damage_doneh)
                     hp_check(current_hp8)
+                    time.sleep(1)
+                    print("you have",current_hp8, "hp left")
+                    time.sleep(1)
                 if(inp == "heal"):
                     current_hp8 = heal(current_hp8, healing, hero_hp)
                 if(inp == "run"):
                     print("you ran away")
-                    break
                 print("You beat the reindeer and continue")
                 time.sleep(2)
                 print("you get to Santa and save him, you saved Christmas! But then. You wake up and realise everything was a dream.")
@@ -293,11 +304,13 @@ if option1 == ("open"):
                     damage_doneh = roll_4_dmgh(10)
                     current_hp8 = damage_hero(current_hp8, damage_doneh)
                     hp_check(current_hp8)
+                    time.sleep(1)
+                    print("you have",current_hp8, "hp left")
+                    time.sleep(1)
                 if(inp == "heal"):
                     current_hp8 = heal(current_hp8, healing, hero_hp)
                 if(inp == "run"):
                     print("you ran away")
-                    break
             print("You beat the snowman's and go home")
 
 
