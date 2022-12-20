@@ -113,7 +113,27 @@ def hp_check(current_hp8):
     else:
         return
 
-
+def healing2(current_hp8, hero_hp, healing):
+    hit = random.randint(1, 20)
+    if hit > 15:
+        dmgh = random.randint(10, 20) + 10
+        current_hp8 = hero_hp - dmgh
+        print("you got hit while healing")
+        time.sleep(1)
+        print("you have",current_hp8,"left")
+        return current_hp8
+    else:
+        if current_hp8 < hero_hp:
+            if current_hp8 <= hero_hp - healing:
+                current_hp8 = current_hp8 + healing
+                print("you healed and got your hp up to",current_hp8)
+                return current_hp8
+            if current_hp8 > hero_hp - healing:
+                current_hp8 =  hero_hp
+                print("you healed and got your hp up to",current_hp8)
+                return current_hp8
+        if current_hp8 == hero_hp:
+            print("you already have full hp")
 
 print("It’s a late Christmas night, you’re downstairs in front of the television, you think it’s time to go to bed so you head upstairs and go to sleep.")
 time.sleep(4)
@@ -153,6 +173,8 @@ if option1 == ("sleep"):
                 current_hp8 = heal(current_hp8, healing, hero_hp)
             if(inp == "run"):
                 game_over()
+            else:
+                print("wrong input")
         print("You have beaten the elves!")
     time.sleep(3)
     print("You see the big glowing Christmas tree and think it’s time to take it home")
@@ -323,4 +345,3 @@ if option1 == ("open"):
                     print("you ran away")
                     game_over()
             print("You beat the snowman's and go home")
-
