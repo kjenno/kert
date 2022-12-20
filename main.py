@@ -1,6 +1,7 @@
 import time
 import random
 
+
 elf_hp = 25
 kerst_hp = 50
 sneeuw_hp = 50
@@ -87,10 +88,8 @@ def heal(current_hp8, healing, hero_hp):
             return current_hp8
     if current_hp8 == hero_hp:
         print("you already have full hp")
-
-def hp_check(current_hp8):
-    if current_hp8 <= 0:
-        print("""⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⡀⠀
+def game_over():
+    print("""⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⡀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣤⠀⠀⠀⢀⣴⣿⡶⠀⣾⣿⣿⡿⠟⠛⠁
 ⠀⠀⠀⠀⠀⠀⣀⣀⣄⣀⠀⠀⠀⠀⣶⣶⣦⠀⠀⠀⠀⣼⣿⣿⡇⠀⣠⣿⣿⣿⠇⣸⣿⣿⣧⣤⠀⠀⠀
 ⠀⠀⢀⣴⣾⣿⡿⠿⠿⠿⠇⠀⠀⣸⣿⣿⣿⡆⠀⠀⢰⣿⣿⣿⣷⣼⣿⣿⣿⡿⢀⣿⣿⡿⠟⠛⠁⠀⠀
@@ -106,9 +105,15 @@ def hp_check(current_hp8):
 ⠀⠀⠀⣿⣿⡇⠀⠀⢀⣴⣿⣿⡟⠀⣿⣿⣿⣿⠃⠀⠀⣾⣿⣿⡿⠿⠛⢛⣿⡟⠀⠀⠀⠀⠀⠻⠿⠀⠀
 ⠀⠀⠀⠹⣿⣿⣶⣾⣿⣿⣿⠟⠁⠀⠸⢿⣿⠇⠀⠀⠀⠛⠛⠁⠀⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠈⠙⠛⠛⠛⠋⠁⠀  """)
-        exit()
+    exit()
+
+def hp_check(current_hp8):
+    if current_hp8 <= 0:
+        game_over()
     else:
         return
+
+
 
 print("It’s a late Christmas night, you’re downstairs in front of the television, you think it’s time to go to bed so you head upstairs and go to sleep.")
 time.sleep(4)
@@ -131,7 +136,7 @@ if option1 == ("sleep"):
         print("You talk it out and due to your charisma you managed to get in without harming anyone")
     if option2 == ("fight"):
         while current_hp1 > 0:
-            inp = input(r"you decide to fight what will you do?:  ")
+            inp = input(r"you decide to fight what will you do?[attack][heal][run]:  ")
             if(inp == "attack"):
                 if(roll_to_hit(ac)):
                     damage_done = roll_4_dmg(strength)
@@ -147,7 +152,9 @@ if option1 == ("sleep"):
             if(inp == "heal"):
                 current_hp8 = heal(current_hp8, healing, hero_hp)
             if(inp == "run"):
-                print("you ran away")
+                game_over()
+            else:
+                print("wrong input")
         print("You have beaten the elves!")
     time.sleep(3)
     print("You see the big glowing Christmas tree and think it’s time to take it home")
@@ -156,7 +163,7 @@ if option1 == ("sleep"):
     time.sleep(3)
     print("Santa comes down to attack you and you start to fight")
     while current_hp2 > 0:
-            inp = input(r" santa has appeared what will you do?:  ")
+            inp = input(r" santa has appeared what will you do?[attack][heal][run]:  ")
             if(inp == "attack"):
                 if(roll_to_hit(ac)):
                     damage_done = roll_4_dmg(strength)
@@ -173,6 +180,7 @@ if option1 == ("sleep"):
                 current_hp8 = heal(current_hp8, healing, hero_hp)
             if(inp == "run"):
                 print("you ran away")
+                game_over()
     print("You beat santa!")
     time.sleep(2)
     print("you take the Christmas tree home but, you wake up, this time for real. You’re home and it doesn’t feel like a dream anymore")
@@ -189,7 +197,7 @@ if option1 == ("open"):
     time.sleep(1)
     print(" It’s the snowman captain.")
     while current_hp3 > 0:
-            inp = input(r" the snowman captain has appeared what will you do?:  ")
+            inp = input(r" the snowman captain has appeared what will you do?[attack][heal][run]:  ")
             if(inp == "attack"):
                 if(roll_to_hit(ac)):
                     damage_done = roll_4_dmg(strength)
@@ -206,6 +214,7 @@ if option1 == ("open"):
                 current_hp8 = heal(current_hp8, healing, hero_hp)
             if(inp == "run"):
                 print("you ran away")
+                game_over()
     print("You beat the snowman captain!")
     time.sleep(2)
     print("the snowstorm stops")
@@ -223,7 +232,7 @@ if option1 == ("open"):
         print("You talk it out, luckily you have worked on your charisma and he accepts your offer to let you go help Santa at the factory you continue.")
     if option3 == ("attack"):
         while current_hp4 > 0:
-            inp = input(r" santa got mad what will you do?:  ")
+            inp = input(r" santa got mad what will you do?[attack][heal][run]:  ")
             if(inp == "attack"):
                 if(roll_to_hit(ac)):
                     damage_done = roll_4_dmg(strength)
@@ -240,13 +249,14 @@ if option1 == ("open"):
                 current_hp8 = heal(current_hp8, healing, hero_hp)
             if(inp == "run"):
                 print("you ran away")
+                game_over()
         print("You beat santa and continue")
         time.sleep(2)
         print("You reach Santa’s factory there is fire everywhere, there are 10 snowman guards ready to hold you back.")
         option4 = input("what will you do[fight][go home]")
         if option4 ==("fight"):
             while current_hp5 > 0:
-                inp = input(r" the guards got mad what will you do?:  ")
+                inp = input(r" the guards got mad what will you do?[attack][heal][run]:  ")
                 if(inp == "attack"):
                     if(roll_to_hit(ac)):
                         damage_done = roll_4_dmg(strength)
@@ -263,6 +273,7 @@ if option1 == ("open"):
                     current_hp8 = heal(current_hp8, healing, hero_hp)
                 if(inp == "run"):
                     print("you ran away")
+                    game_over()
             print("You beat the guards and continue")
             time.sleep(3)
             print("you get to Santa’s office and find out he is being held hostage by one of his reindeers")
@@ -270,7 +281,7 @@ if option1 == ("open"):
             print(" your only option is to fight the reindeer.")
             time.sleep(3)
             while current_hp6 > 0:
-                inp = input(r" what will you do?:  ")
+                inp = input(r" what will you do?[attack][heal][run]:  ")
                 if(inp == "attack"):
                     if(roll_to_hit(ac)):
                         damage_done = roll_4_dmg(strength)
@@ -287,14 +298,15 @@ if option1 == ("open"):
                     current_hp8 = heal(current_hp8, healing, hero_hp)
                 if(inp == "run"):
                     print("you ran away")
-                print("You beat the reindeer and continue")
-                time.sleep(2)
-                print("you get to Santa and save him, you saved Christmas! But then. You wake up and realise everything was a dream.")
+                    game_over()
+            print("You beat the reindeer and continue")
+            time.sleep(2)
+            print("you get to Santa and save him, you saved Christmas! But then. You wake up and realise everything was a dream.")
         if option4 == ("Go home"):
             print("you go home")
             print("you find some snowman along the way and find ")
             while current_hp7 > 0:
-                inp = input(r" what will you do?:  ")
+                inp = input(r" what will you do?[attack][heal][run]:  ")
                 if(inp == "attack"):
                     if(roll_to_hit(ac)):
                         damage_done = roll_4_dmg(strength)
@@ -311,6 +323,6 @@ if option1 == ("open"):
                     current_hp8 = heal(current_hp8, healing, hero_hp)
                 if(inp == "run"):
                     print("you ran away")
+                    game_over()
             print("You beat the snowman's and go home")
-
 
